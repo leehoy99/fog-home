@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+/* main */
+
+.nav-container {width: 0;}
+section .main {width: 100%; margin-top: 60px; padding: 4vw 0 0 0; display: flex; flex-flow: row;}
+.main .contents {width: 50vw; margin-left: 25vw;}
+.main .contents .paragraph {margin: 5vw 0; font-size: 13px; line-height: 30px;}
+.main .contents .paragraph p {margin-bottom: 30px;}
+.main .contents .paragraph .title{ margin-bottom: 15px; margin-top: 70px;}
+.main .contents .paragraph .sub-title{ margin-bottom: 25px;}
+.main .contents .paragraph .text-hilight {font-weight: bold;}
+.main .contents .paragraph .ul {text-decoration: underline;}
+
+.main .contents .paragraph .category-box {width: 100%; height: fit-content; display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr 2fr 1.3fr; max-width: 620px; margin: 20px 0 60px 0;}
+.main .contents .paragraph .category-box .grid {display: flex; align-items: center; font-size: 12px;}
+.main .contents .paragraph .category-box .grid-text {color: #ccc;}
+
+.main .side-menu {height: 100%; width: 25vw; margin-top: 6vw;}
+.main .side-menu ul li{font-size: 11px; color: #ccc; text-align: right; padding-right: 5.5vw; margin-bottom: 5px;}
+
+

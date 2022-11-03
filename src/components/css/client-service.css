@@ -1,0 +1,12 @@
+/* main */
+
+.nav-container {width: 0;}
+section.main {width: 100%; margin-top: 60px; padding: 4vw 0 0 0; display: flex; flex-flow: row;}
+section.main .contents {width: 50vw; margin-left: 25vw;}
+section.main .contents .paragraph {margin: 5vw 0; font-size: 13px; line-height: 30px;}
+section.main .contents .paragraph p {margin-bottom: 30px;}
+section.main .contents .paragraph .title{ margin-bottom: 15px; margin-top: 70px;}
+section.main .contents .paragraph .sub-title{ margin-bottom: 25px;}
+section.main .contents .paragraph .text-hilight {font-weight: bold;}
+section.main .side-menu {height: 100%; width: 25vw; margin-top: 6vw;}
+section.main .side-menu ul li{font-size: 11px; color: #ccc; text-align: right; padding-right: 5.5vw; margin-bottom: 5px;}

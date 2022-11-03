@@ -1,17 +1,20 @@
 /* nav영역 */
 
+.nav-container {width: 100%;}
 .nav-top-sticky {position: fixed; width: 100%; top: 0; z-index: 30; display: block; height: 60px;}
-.nav-top {width: 100%; height: 100%; position: absolute; top: 0; display: flex; flex-flow: row wrap; justify-content: space-between; z-index: 60; padding: 0 2.5%; transition: background-color .3s;}
-.nav-top.nav-bg {background-color: #fff; transition: background-color .3s;}
+.nav-top {width: 100%; height: 100%; position: absolute; top: 0; display: flex; flex-flow: row wrap; justify-content: space-between; z-index: 60; padding: 0 2.5%; transition: background-color .3s; color: #000;}
+
+.nav-top.main {color: #fff;}
+.nav-top.nav-bg {background-color: #fff; transition: background-color .3s; color: #000;}
 
 .nav-top  li, .nav-top p {font-family: 'Gobold Thin';} 
-.nav-top .gnb { width: fit-content; margin-top: 2px; color: #000000; height: 100%; min-width: 300px;}
+.nav-top .gnb { width: fit-content; margin-top: 2px; height: 100%; min-width: 300px;}
 .nav-top .L-gnb > ul {display: flex; justify-content: flex-start; height: 100%;}
 .nav-top .R-gnb > ul {display: flex; justify-content: flex-end; height: 100%;}
 .nav-top .L-gnb > ul > li {margin-right: 40px;}
 .nav-top .R-gnb > ul > li {margin-left: 40px;}
 .nav-top .gnb > ul > li {font-size: 12px; height: 100%; display: flex; align-items: center; width: fit-content;}
-.nav-top .title {font-size: 1.2rem; color: black; letter-spacing: .2rem; height: 100%; display: flex; align-items: center; font-family: var(--gobold-thin-font);}
+.nav-top .title {font-size: 1.2rem; letter-spacing: .2rem; height: 100%; display: flex; align-items: center; font-family: var(--gobold-thin-font);}
 .nav-top .gnb4 {cursor: pointer;}
 .nav-top .gnb6 {cursor: pointer;}
 

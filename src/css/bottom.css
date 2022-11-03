@@ -3,7 +3,7 @@
 /* contact section */
 
 .bottom-menu {width: 100%; padding: 5rem 3% 3rem 3%; display: flex; flex-flow: row wrap; justify-content: space-between;}
-.contact-section {width: 300px;}
+.contact-box {width: 300px;}
 .contact {width: 100%; padding-top: 2rem;}
 .contact .join {font-family: sans-serif; font-size: 1.2rem; font-weight: 100; margin-bottom: 20px;}
 .contact .email {border: 0px; border-bottom: 1px solid black; border-radius: 0; width: 30vw; height: 25px; font-size: 2.5vh; font-family: sans-serif; color: black;}
@@ -13,7 +13,7 @@
 
 .footer-section {width: 400px;}
 .footer {width: 100%; display: flex; flex-flow: row nowrap; justify-content: space-between;}
-.footer p {font-family: 'Gobold' ,serif; font-size: .5rem; padding-top: 5rem;}
+.footer p {font-family: sans-serif; font-size: .5rem; padding-top: 5rem;}
 
 /* top */
 .top {display: none; width: 40px; height: 40px; border: 0.5px solid #fff; background: #fff; border-radius: 50%; position: fixed; bottom: 12vh; right: 2vh; text-align: center; font-size: 25px; line-height: 32px; z-index: 999999; text-indent: 2px; font-weight: lighter; font-family: arial;}

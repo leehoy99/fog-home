@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Bag from '../bag/Bag';
 import '../css/detail.css'
+import Bottom from '../ui/Bottom';
 import Nav from '../ui/Nav';
 
 
@@ -159,6 +160,7 @@ function Detail() {
             </div>
         </section>
     </div>
+    <Bottom />
     <Bag value={display}/>
     </Fragment>
   )

@@ -22,14 +22,19 @@ function Nav(props) {
         setNavScroll('nav-top nav-bg');
     }
 
+    
     const navGoScroll = function() {
         if(window.scrollY > 0) {
             setNavScroll('nav-top nav-bg')
         } else {
-            setNavScroll('nav-top')
+            if(props.classInfo === 'main') {
+                setNavScroll('nav-top main')
+            } else {
+                setNavScroll('nav-top')
+            }
         }
     }
-    
+
     useEffect(() => {
         const timer = setInterval(() => {
             window.addEventListener('scroll', navGoScroll);
@@ -39,11 +44,11 @@ function Nav(props) {
             clearInterval(timer);
             window.removeEventListener('scroll', navGoScroll)
         }
-    }, []);
-
+    });
+    
     return (
     <Fragment>
-        <div className='container' onMouseLeave={mouseLeave}>
+        <div className='nav-container' onMouseLeave={mouseLeave}>
             <div className='nav-top-sticky'>
                 <nav className={navScroll}>
                     <div className="react-i">

@@ -1,7 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import Bag from '../bag/Bag'
 import Nav from '../ui/Nav'
+import Bottom from '../ui/Bottom'
 import '../css/athletics.css'
+
 
 
 function Athletics() {
@@ -19,7 +21,7 @@ function Athletics() {
   return (
     <Fragment>
         <Nav value={display} getDis={getDis}/>
-        <div className="container">
+        <div className="ath-container">
             <section className="athletics">
                 <div className="athletics-text">
                 <p>Adidas officially announces its long-term partnership with Fear of God, led by owner and founder Jerry Lorenzo. With this groundbreaking partnership, Lorenzo will drive the creative and business strategy for adidas basketball globally. The alliance challenges and exists beyond traditional collaboration –– and is the truest and most honest form of both personal and business relationship. The partnership will also solidify the establishment and formation of the third pillar of the Fear of God house, Fear of God Athletics. The new pillar will focus on performance basketball and active lifestyle products that complete Fear of God’s triune nature and compliments the brand's other two pillars, Essentials and Fear of God’s luxury mainline.<br /><br />
@@ -32,6 +34,7 @@ function Athletics() {
                 </div>
             </section>
         </div>
+        <Bottom />
         <Bag value={display}/>
     </Fragment>
   )

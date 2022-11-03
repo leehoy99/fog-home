@@ -2,9 +2,10 @@
 
 /* 헤더영역 */
 
+
 .header {width: 100%; height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow-y: hidden;}
-.header .header-img {width: 100%; height: 100vh;}
-.header .header-img .video {object-fit: cover;}
+.header .header-video {width: 100%; height: 100vh; overflow: hidden;}
+.header .header-video video {object-fit: cover;}
 .header .header-text{font-family: 'OPTIMA', serif; font-weight: 400; display: flex; position: absolute; align-items: center; justify-content: center; flex-flow: column wrap; color: white; text-align: center;}
 .header .header-text .header-text1{font-size: 7vw; font-weight: normal; line-height: .9em;}
 .header .header-text .header-text2{font-size: .3em; line-height: 1.2em; font-weight: normal; border-bottom: 1px solid white; margin-top: 26px;}
