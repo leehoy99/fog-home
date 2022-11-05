@@ -8,20 +8,28 @@ import '../css/athletics.css'
 
 function Athletics() {
     const [display, setDisplay] = useState('');
+    const [blur, setBlur] = useState('');
     const getDis = (display) => {
         setDisplay(display)
-        console.log('do in shop')
     };
-    console.log(display)
+    const getBlur = (blur) => {
+        if(blur === 'on') {
+                setBlur(blur)
+        } else {
+            setBlur(blur)
+        }
+    }
+
     useEffect(() => {
         getDis();
     },[display])
 
 
+
   return (
     <Fragment>
-        <Nav value={display} getDis={getDis}/>
-        <div className="ath-container">
+        <Nav value={display} getDis={getDis} getBlur={getBlur}/>
+        <div class={"ath-container " + blur}>
             <section className="athletics">
                 <div className="athletics-text">
                 <p>Adidas officially announces its long-term partnership with Fear of God, led by owner and founder Jerry Lorenzo. With this groundbreaking partnership, Lorenzo will drive the creative and business strategy for adidas basketball globally. The alliance challenges and exists beyond traditional collaboration –– and is the truest and most honest form of both personal and business relationship. The partnership will also solidify the establishment and formation of the third pillar of the Fear of God house, Fear of God Athletics. The new pillar will focus on performance basketball and active lifestyle products that complete Fear of God’s triune nature and compliments the brand's other two pillars, Essentials and Fear of God’s luxury mainline.<br /><br />
@@ -30,7 +38,7 @@ function Athletics() {
                     Jerry Lorenzo is synonymous with Los Angeles, where the game of basketball intersects with the culture that surrounds it. Together the partnership will celebrate collaboration, creativity, and legacy in sport.</p>
                 </div>
                 <div className="athletics-img">
-                    <img src="images/05.jpg" alt='/' />
+                    <img src="/images/05.jpg" alt='/' />
                 </div>
             </section>
         </div>

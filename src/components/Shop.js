@@ -8,14 +8,23 @@ import ItemList from '../item/ItemList';
 function Shop() {
 
     const [display, setDisplay] = useState('');
+    const [item, setItem] = useState('')
+    const [blur, setBlur] = useState('');
     const getDis = (display) => {
         setDisplay(display)
     };
+    const getBlur = (blur) => {
+        if(blur === 'on') {
+                setBlur(blur)
+        } else {
+            setBlur(blur)
+        }
+    }
+
     useEffect(() => {
         getDis();
     },[display])
 
-    const [item, setItem] = useState('')
 
     useEffect(() => {
         const fetchItemData = async () => {
@@ -55,8 +64,8 @@ function Shop() {
 
   return (
     <Fragment>
-        <div className="shop-container">
-            <Nav value={display} getDis={getDis}/>
+        <Nav value={display} getDis={getDis} getBlur={getBlur}/>
+        <div className={"shop-container " + blur}>
             <section className="filter-section">
                 <p className="cartegory">ALL<span className="arrow" /></p>
                 <p className="filter">FILTER<span className="cross-minus" /></p>

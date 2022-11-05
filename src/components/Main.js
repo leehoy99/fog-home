@@ -9,12 +9,17 @@ import Nav from '../ui/Nav'
 function Main() {
 
     const [display, setDisplay] = useState('');
+    const [blur, setBlur] = useState('');
     const getDis = (display) => {
         setDisplay(display)
-        console.log('do in shop')
     };
-
-    console.log(display)
+    const getBlur = (blur) => {
+        if(blur === 'on') {
+                setBlur(blur)
+        } else {
+            setBlur(blur)
+        }
+    }
 
     useEffect(() => {
         getDis();
@@ -22,8 +27,8 @@ function Main() {
 
   return (
     <Fragment>
-        <div className="main-container">
-            <Nav value={display} getDis={getDis} classInfo={`main`} />
+        <Nav value={display} getDis={getDis} classInfo={`main`} getBlur={getBlur}/>
+        <div className={'main-container ' + blur}>
             <header className="header">
                 <div className="header-video">
                     <ReactPlayer 

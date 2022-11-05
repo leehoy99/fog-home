@@ -7,20 +7,29 @@ import Nav from '../ui/Nav';
 
 
 function Detail() {
+
     const [display, setDisplay] = useState('');
+    const [blur, setBlur] = useState('');
     const getDis = (display) => {
         setDisplay(display)
-        console.log('do in shop')
     };
-    console.log(display)
+    const getBlur = (blur) => {
+        if(blur === 'on') {
+                setBlur(blur)
+        } else {
+            setBlur(blur)
+        }
+    }
+
     useEffect(() => {
         getDis();
     },[display])
 
+
     return (
     <Fragment>
-    <div className='contents'>
-    <Nav value={display} getDis={getDis}/>
+    <Nav value={display} getDis={getDis} getBlur={getBlur}/>
+    <div className={'detail-container ' + blur}>
         <section className="section1">
             <div className="item-img">
             <img src="/images/bag-img.webp" alt='/' />

@@ -7,20 +7,28 @@ import Nav from '../ui/Nav'
 function Contact() {
 
     const [display, setDisplay] = useState('');
+    const [blur, setBlur] = useState('');
     const getDis = (display) => {
         setDisplay(display)
-        console.log('do in shop')
     };
-    console.log(display)
+    const getBlur = (blur) => {
+        if(blur === 'on') {
+                setBlur(blur)
+        } else {
+            setBlur(blur)
+        }
+    }
+
     useEffect(() => {
         getDis();
     },[display])
 
 
+
   return (
     <Fragment>
-        <section className='contact-section'>
-        <Nav value={display} getDis={getDis}/>
+        <Nav value={display} getDis={getDis} getBlur={getBlur}/>
+        <section className={'contact-section ' + blur}>
             <div className="contact-contents">
                 <h1 className="contact-title">CONTACT</h1>
                 <div className="contact-info-1">

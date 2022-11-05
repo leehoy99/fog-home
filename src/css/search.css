@@ -1,0 +1,6 @@
+.top-gnb4-extand-box {display: block; visibility: hidden; opacity: 0; transition: all .4; transition-delay: .1s;}
+.nav-top .gnb4:hover .top-gnb4-extand-box {visibility: visible; opacity: 1; transition: all .4s;}
+.search-box {display: flex; position: absolute; top: 50px; left: 0; width: 100%; height: 100px; background: #fff; z-index: 20; padding:  0.5%; gap: 15rem;}
+.search-box .search {position: absolute; right: 2rem;}
+.search-box .search #nav-search {border: 0px; border-bottom: 1px solid black; border-radius: 0; height: 30px; font-size: 2.5vh; font-family: 'Gobold',serif; color: black;}
+.search-box .search #nav-search::placeholder {color: black; font-family: 'Gobold',serif; font-size: 1rem;}

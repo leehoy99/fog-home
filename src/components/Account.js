@@ -6,19 +6,26 @@ import Bottom from '../ui/Bottom';
 
 function Account() {
     const [display, setDisplay] = useState('');
+    const [blur, setBlur] = useState('');
     const getDis = (display) => {
         setDisplay(display)
-        console.log('do in shop')
     };
-    console.log(display)
+    const getBlur = (blur) => {
+        if(blur === 'on') {
+                setBlur(blur)
+        } else {
+            setBlur(blur)
+        }
+    }
+
     useEffect(() => {
         getDis();
     },[display])
 
   return (
     <Fragment>
-        <Nav value={display} getDis={getDis}/>
-        <section class="account">
+        <Nav value={display} getDis={getDis} getBlur={getBlur}/>
+        <section class={"account-container " + blur}>
             <div class="contents">
                 <p>LOGIN</p>
                 <form action="" class="account-form">

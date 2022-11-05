@@ -1,20 +1,21 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState,} from 'react';
 import '../css/menuExtend.css'
 
 const MenuExtendGnb3 = (props) => {
-    const[you, setYou] = useState('extand-box')
-    console.log(props.display)
-    const doDisplay = () => {
-        setYou('extand-box off')
-    }
-    if(props.display) {
-        doDisplay();
-    }
-    
+    const [changeClass, setChangeClass] = useState('');
+    // console.log(props.class)
+    useEffect(() => {
+        if(props.class) {
+            setChangeClass('on')
+        }else {
+            setChangeClass('')
+        }
+    },[props])
+
     return (
         <Fragment>
-            <div className={you}>
-            <div className="extand">
+            <div className={"extend-box extend-box-3 " + changeClass}>
+            <div className="extend">
                 <div className="nav-gnb-ex">
                 <h4><a href ='/'>SHOP MENS</a></h4>
                 <ul>

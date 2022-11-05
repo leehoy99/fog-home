@@ -9,20 +9,28 @@ import { Link } from 'react-router-dom';
 function PlacingAnOrder() {
 
     const [display, setDisplay] = useState('');
+    const [blur, setBlur] = useState('');
     const getDis = (display) => {
         setDisplay(display)
-        console.log('do in shop')
     };
-    console.log(display)
+    const getBlur = (blur) => {
+        if(blur === 'on') {
+                setBlur(blur)
+        } else {
+            setBlur(blur)
+        }
+    }
+
     useEffect(() => {
         getDis();
     },[display])
 
 
+
   return (
     <Fragment>
-        <section className="main">
-        <Nav value={display} getDis={getDis}/>
+        <Nav value={display} getDis={getDis} getBlur={getBlur}/>
+        <section className={"main " + blur}>
             <div className="contents">
             <div className="paragraph-1 paragraph">
                 <p className="title"><span className="text-hilight">PLACING AN ORDER</span></p>

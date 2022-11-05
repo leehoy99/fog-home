@@ -1,7 +1,7 @@
 /* 전체영역 */
 
-* {margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth;}
-body {overflow-x: hidden;}
+* {margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body {overflow-x: hidden; }
 /* body::-webkit-scrollbar {width: 8px;}
 body::-webkit-scrollbar-thumb {height: 30%; background: #000;}
 body::-webkit-scrollbar-track {background: #fff; opacity: 0;} */

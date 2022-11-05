@@ -6,7 +6,7 @@ const MenuExtendTest = () => {
     return (
         <Fragment>
             <Nav />
-                <div className='container' style={{'height' : '1000px', 'width' : '100%', 'display' : 'flex', 'alignItems': 'center', 'backgroundColor' : 'black'}}>
+                <div className='container' style={{'height' : '1000px', 'width' : '100%', 'display' : 'flex', 'alignItems': 'center','backgroundColor': '#ccc'}}>
                     <p style={{'textAlign' : 'center', 'display' : 'block' ,'width': '100%'}}>this is extend test</p>
                 </div>
             <Bottom />
