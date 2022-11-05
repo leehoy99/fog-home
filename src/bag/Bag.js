@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import '../css/bag.css'
+import BagItem from './BagItem';
 
 function Bag(props) {
     const [displayOn, setDisplayOn] = useState('');
@@ -11,110 +12,17 @@ function Bag(props) {
             }
     },[props.value]);
 
+    const items = <BagItem></BagItem>
   return (
     <Fragment>
+
         <div className={`bag-extend `+displayOn}>
             <div className="control">
                 <p>SHOPPING CART</p>
                 <p onClick={() => setDisplayOn('')}>BACK</p>
             </div>
             <div className="bag-box">
-                <div className="bag-item">
-                <div className="img-box">
-                    <img src="Images/bag-img.webp" alt='/' />
-                </div>
-                <div className="info">
-                    <p className="item-name">Baseball Tee</p>
-                    <p className="sale-info">This item is final sale</p>
-                    <p className="item-info">
-                    <span className="item-color">
-                        Cream Heather/Red 
-                    </span>/ 
-                    <span className="item-size">
-                        XS
-                    </span>
-                    </p>
-                    <p className="qty-text">Qty: <span className="qty">1</span></p>
-                </div>
-                <div className="price-info">
-                    <p>₩<span className="item-price">484,000</span></p>
-                    <p className="item-remove">
-                    REMOVE
-                    </p>
-                </div>
-                </div>
-                <div className="bag-item">
-                <div className="img-box">
-                    <img src="Images/bag-img.webp" alt='/' />
-                </div>
-                <div className="info">
-                    <p className="item-name">Baseball Tee</p>
-                    <p className="sale-info">This item is final sale</p>
-                    <p className="item-info">
-                    <span className="item-color">
-                        Cream Heather/Red 
-                    </span>/ 
-                    <span className="item-size">
-                        XS
-                    </span>
-                    </p>
-                    <p className="qty-text">Qty: <span className="qty">1</span></p>
-                </div>
-                <div className="price-info">
-                    <p>₩<span className="item-price">484,000</span></p>
-                    <p className="item-remove">
-                    REMOVE
-                    </p>
-                </div>
-                </div>
-                <div className="bag-item">
-                <div className="img-box">
-                    <img src="Images/bag-img.webp" alt='/' />
-                </div>
-                <div className="info">
-                    <p className="item-name">Baseball Tee</p>
-                    <p className="sale-info">This item is final sale</p>
-                    <p className="item-info">
-                    <span className="item-color">
-                        Cream Heather/Red 
-                    </span>/ 
-                    <span className="item-size">
-                        XS
-                    </span>
-                    </p>
-                    <p className="qty-text">Qty: <span className="qty">1</span></p>
-                </div>
-                <div className="price-info">
-                    <p>₩<span className="item-price">484,000</span></p>
-                    <p className="item-remove">
-                    REMOVE
-                    </p>
-                </div>
-                </div>
-                <div className="bag-item">
-                <div className="img-box">
-                    <img src="Images/bag-img.webp" alt='/' />
-                </div>
-                <div className="info">
-                    <p className="item-name">Baseball Tee</p>
-                    <p className="sale-info">This item is final sale</p>
-                    <p className="item-info">
-                    <span className="item-color">
-                        Cream Heather/Red 
-                    </span>/ 
-                    <span className="item-size">
-                        XS
-                    </span>
-                    </p>
-                    <p className="qty-text">Qty: <span className="qty">1</span></p>
-                </div>
-                <div className="price-info">
-                    <p>₩<span className="item-price">484,000</span></p>
-                    <p className="item-remove">
-                    REMOVE
-                    </p>
-                </div>
-                </div>
+                {items ? items : (<p style={{'textAlign': 'center','width':'100%'}}>There is no item</p>) }
             </div>
             <div className="shipping">
                 <p className="shipping-info">₩470,200 이상에 해당하는 모든 주문은 KOREA (SOUTH)까지 무료 배송해 드립니다</p>
@@ -125,7 +33,7 @@ function Bag(props) {
                 </div>
                 <div className="package-protection-box">
                 <div className="package-protection-icon">
-                    <img src="Images/package-protection-logo.svg" alt='/' />
+                    <img src="/Images/package-protection-logo.svg" alt='/' />
                 </div>
                 <div className="package-protection-paragraph">
                     <p className="package-protection-title">Package Protection</p>

@@ -1,5 +1,5 @@
-.bag-extend {display: block; position: fixed; top: 0; left: 100%; width: 780px; background-color: #fff; height: 100vh; z-index: 9999; transition: left .3s;}
-.bag-extend.on {display: block; left: 60%; transition: left .3s;}
+.bag-extend {display: block; position: fixed; top: 0; right: -80%; width: 780px; background-color: #fff; height: 100vh; z-index: 9999; transition: right .4s;}
+.bag-extend.on {display: block; right: 0; transition: right .4s;}
 .bag-extend .control {width: 100%; height: fit-content; display: flex; justify-content: space-between; margin-bottom: 40px; padding: 5% 5% 0 5%;}
 .bag-extend .control p {font-size: 12px; height: auto;}
 .bag-extend .control p:last-of-type {font-weight: bold; cursor: pointer;}

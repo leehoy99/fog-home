@@ -1,5 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import MenuExtendGnb1 from '../components/MenuExtendGnb1';
+import MenuExtendGnb3 from '../components/MenuExtendGnb3';
 import '../css/nav.css'
 
 function Nav(props) {
@@ -7,6 +9,7 @@ function Nav(props) {
     
     const [navScroll, setNavScroll] = useState('nav-top');
     const [mouse, setMouse] = useState('searchExtend off');
+    const [display, setDisplay] = useState(false)
     
     const click = () => {
         props.getDis('on');
@@ -22,6 +25,9 @@ function Nav(props) {
         setNavScroll('nav-top nav-bg');
     }
 
+    const mouseDisplay = () => [
+        setDisplay(true)
+    ]
     
     const navGoScroll = function() {
         if(window.scrollY > 0) {
@@ -65,7 +71,7 @@ function Nav(props) {
                                 <Link to="/athletics" className="ath">ATHLETIC</Link>
                             </li>
                             <li className="gnb3">
-                                <Link to='/shop' className="esn">ESSENTIALS</Link>
+                                <Link to='/shop' className="esn" onMouseOver={mouseDisplay}>ESSENTIALS</Link>
                             </li>
                         </ul>
                     </div>
@@ -103,6 +109,8 @@ function Nav(props) {
                 </nav>
             </div>
         </div>
+    <MenuExtendGnb1 />
+    <MenuExtendGnb3 display={display}/>
     </Fragment>
   )
 }

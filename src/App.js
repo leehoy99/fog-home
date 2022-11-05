@@ -12,7 +12,7 @@ import PaymentInformation from './components/client-service/PaymentInformation';
 import ReturnPolicy from './components/client-service/ReturnPolicy';
 import Covid19Notice from './components/client-service/Covid19Notice';
 import PrivacyPolicy from './components/legal-notices/PrivacyPolicy';
-
+import MenuExtendTest from './components/MenuExtendTest';
 function App() {
   return (
     <Routes>
@@ -29,6 +29,7 @@ function App() {
       <Route path='/return-policy' element={<ReturnPolicy />}></Route>
       <Route path='/covid-19-notice' element={<Covid19Notice />}></Route>
       <Route path='/privacy-policy' element={<PrivacyPolicy />}></Route>
+      <Route path='/extend-setting' element={<MenuExtendTest />}></Route>
     </Routes>
   );
 }

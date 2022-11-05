@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import ReactPlayer from "react-player";
+import { Link } from 'react-router-dom';
 import Bag from '../bag/Bag';
 import '../css/main.css'
 import Bottom from '../ui/Bottom';
@@ -39,7 +40,7 @@ function Main() {
                 <div className="header-text">
                 <h1 className="header-text1">ESSENTIALS</h1>
                 <h1 className="header-text1">THE SECOND DELIVERY</h1>
-                <h4 className="header-text2">SHOP</h4>
+                <Link to='/shop'><h4 className="header-text2">SHOP</h4></Link>
                 </div>
             </header>
             <section className="cloth-section">
