@@ -1,33 +1,16 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import ReactPlayer from "react-player";
 import { Link } from 'react-router-dom';
-import Bag from '../bag/Bag';
 import '../css/main.css'
-import Bottom from '../ui/Bottom';
-import Nav from '../ui/Nav'
+// import Nav from '../ui/Nav'
 
-function Main() {
-
-    const [display, setDisplay] = useState('');
+function Main(props) {
     const [blur, setBlur] = useState('');
-    const getDis = (display) => {
-        setDisplay(display)
-    };
-    const getBlur = (blur) => {
-        if(blur === 'on') {
-                setBlur(blur)
-        } else {
-            setBlur(blur)
-        }
-    }
-
     useEffect(() => {
-        getDis();
-    },[display])
-
+        setBlur(props.blur)
+    },[props.blur])
   return (
     <Fragment>
-        <Nav value={display} getDis={getDis} classInfo={`main`} getBlur={getBlur}/>
         <div className={'main-container ' + blur}>
             <header className="header">
                 <div className="header-video">
@@ -69,8 +52,6 @@ function Main() {
                 </div>
             </section>
         </div>
-        <Bottom />
-        <Bag value={display}/>
     </Fragment>
   )
 }

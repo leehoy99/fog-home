@@ -1,35 +1,19 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import '../css/client-service.css'
-import Bag from '../../bag/Bag';
-import Bottom from '../../ui/Bottom';
-import Nav from '../../ui/Nav'
 import { Link } from 'react-router-dom';
 
 
-function Covid19Notice() {
+function Covid19Notice(props) {
 
-    const [display, setDisplay] = useState('');
     const [blur, setBlur] = useState('');
-    const getDis = (display) => {
-        setDisplay(display)
-    };
-    const getBlur = (blur) => {
-        if(blur === 'on') {
-                setBlur(blur)
-        } else {
-            setBlur(blur)
-        }
-    }
-
     useEffect(() => {
-        getDis();
-    },[display])
+        setBlur(props.blur)
+    },[props.blur])
 
 
 
   return (
     <Fragment>
-        <Nav value={display} getDis={getDis} getBlur={getBlur}/>
         <section className={"main " + blur}>
             <div className="contents">
             <div className="paragraph-1 paragraph">
@@ -57,8 +41,6 @@ function Covid19Notice() {
                 </ul>
             </div>
         </section>
-        <Bottom />
-        <Bag value={display}/>
     </Fragment>
   )
 }

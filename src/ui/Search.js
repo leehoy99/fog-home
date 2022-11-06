@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from 'react'
 
 function Search(props) {
     const [changeClass, setChangeClass] = useState('');
-    console.log(props.class)
     useEffect(() => {
         if(props.class) {
             setChangeClass('on')

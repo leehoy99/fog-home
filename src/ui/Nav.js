@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import MenuExtendGnb1 from '../components/MenuExtendGnb1';
 import MenuExtendGnb3 from '../components/MenuExtendGnb3';
@@ -8,7 +8,6 @@ import Search from './Search';
 
 function Nav(props) {
 
-    // const [changeBlur, setChangeBlur] = useState(false);
     const [navScroll, setNavScroll] = useState('nav-top');
     const [gnb1Mouse, setGnb1Mouse] = useState(false);
     const [gnb3Mouse, setGnb3Mouse] = useState(false);
@@ -16,17 +15,14 @@ function Nav(props) {
     
     const click = () => {
         props.getDis('on');
+        console.log('click in Nav')
     }
 
     const navGoScroll = function() {
         if(window.scrollY > 0) {
             setNavScroll('nav-top nav-bg')
         } else {
-            if(props.classInfo === 'main') {
-                setNavScroll('nav-top main')
-            } else {
                 setNavScroll('nav-top')
-            }
         }
     }
 
@@ -40,6 +36,32 @@ function Nav(props) {
             window.removeEventListener('scroll', navGoScroll)
         }
     });
+
+    const gnb1Over = useCallback(() => {
+        setGnb1Mouse(true)
+        props.getBlur('on')
+    },[props])
+    const gnb1Leave = useCallback(() => {
+        setGnb1Mouse(false)
+        props.getBlur('')
+    },[props]) 
+    const gnb3Over = useCallback(() => {
+        setGnb3Mouse(true)
+        props.getBlur('on')
+    },[props])
+    const gnb3Leave = useCallback(() => {
+        setGnb3Mouse(false)
+        props.getBlur('')
+    },[props]) 
+    const searchOver = useCallback(() => {
+        setSearchMouse(true)
+        props.getBlur('on')
+    },[props])
+    const searchLeave = useCallback(() => {
+        setSearchMouse(false)
+        props.getBlur('')
+    },[props]) 
+    
     
     return (
     <Fragment>
@@ -53,13 +75,7 @@ function Nav(props) {
                     </div>
                     <div className="L-gnb gnb">
                         <ul>
-                            <li className="gnb1" onMouseOver={() => {
-                                    setGnb1Mouse(true)
-                                    props.getBlur('on')
-                                }} onMouseLeave={() => {
-                                    setGnb1Mouse(false)
-                                    props.getBlur('')
-                                }}>
+                            <li className="gnb1" onMouseOver={gnb1Over} onMouseLeave={gnb1Leave}>
                                 <Link to="/shop" className="fog" >FEAR OF GOD
                                 </Link>
                                 <MenuExtendGnb1 class={gnb1Mouse}/>
@@ -67,13 +83,7 @@ function Nav(props) {
                             <li className="gnb2">
                                 <Link to="/athletics" className="ath">ATHLETIC</Link>
                             </li>
-                            <li className="gnb3" onMouseOver={() => {
-                                    setGnb3Mouse(true)
-                                    props.getBlur('on')
-                                }} onMouseLeave={() => {
-                                    setGnb3Mouse(false)
-                                    props.getBlur('')
-                                }}>
+                            <li className="gnb3" onMouseOver={gnb3Over} onMouseLeave={gnb3Leave}>
                                 <Link to="/shop" className="fog" >ESSENTIALS
                                 </Link>
                                 <MenuExtendGnb3 class={gnb3Mouse}/>
@@ -85,13 +95,7 @@ function Nav(props) {
                     </div>
                     <div className="R-gnb gnb">
                         <ul>
-                        <li className="gnb4" onMouseOver={() => {
-                                    setSearchMouse(true)
-                                    props.getBlur('on')
-                                }} onMouseLeave={() => {
-                                    setSearchMouse(false)
-                                    props.getBlur('')
-                                }}>
+                        <li className="gnb4" onMouseOver={searchOver} onMouseLeave={searchLeave}>
                             <p>SEARCH</p>
                             <Search class={searchMouse}/>
                         </li>
@@ -119,7 +123,6 @@ function Nav(props) {
                 </nav>
             </div>
         </div>
-        {/* <Blur style={changeBlur}/> */}
     </Fragment>
   )
 }

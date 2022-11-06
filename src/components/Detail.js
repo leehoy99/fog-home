@@ -1,48 +1,59 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import Bag from '../bag/Bag';
+import { Link, useParams } from 'react-router-dom';
 import '../css/detail.css'
-import Bottom from '../ui/Bottom';
-import Nav from '../ui/Nav';
 
+function Detail(props) {
 
-function Detail() {
-
-    const [display, setDisplay] = useState('');
-    const [blur, setBlur] = useState('');
-    const getDis = (display) => {
-        setDisplay(display)
-    };
-    const getBlur = (blur) => {
-        if(blur === 'on') {
-                setBlur(blur)
-        } else {
-            setBlur(blur)
-        }
-    }
+    const { id } = useParams();
+    const [product,setProduct] = useState('')
+    const [recomendProduct,setRecomendProduct] = useState('')
 
     useEffect(() => {
-        getDis();
-    },[display])
+        const getProduct = async () => {
+          const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+          setProduct(await response.json())
+        };
+        getProduct();
+    }, [id]);
+    const category = product.category
+    console.log(category)
+    useEffect(() => {
+        const getRecomendProduct = async () => {
+          const response = await fetch(`https://fakestoreapi.com/products/category/${category}`);
+          setRecomendProduct(await response.json())
+        };
+        getRecomendProduct();
+    }, [category]);
+    
+    console.log(recomendProduct)
 
+
+    const [blur, setBlur] = useState('');
+    useEffect(() => {
+        setBlur(props.blur)
+    },[props.blur])
 
     return (
     <Fragment>
-    <Nav value={display} getDis={getDis} getBlur={getBlur}/>
     <div className={'detail-container ' + blur}>
         <section className="section1">
             <div className="item-img">
+            <img src={product.image} alt='/' />
+            <img src={product.image} alt='/' />
+            <img src={product.image} alt='/' />
+            <img src={product.image} alt='/' />
+            <img src={product.image} alt='/' />
+            <img src={product.image} alt='/' />
+            {/* <img src="/images/bag-img.webp" alt='/' />
             <img src="/images/bag-img.webp" alt='/' />
             <img src="/images/bag-img.webp" alt='/' />
             <img src="/images/bag-img.webp" alt='/' />
-            <img src="/images/bag-img.webp" alt='/' />
-            <img src="/images/bag-img.webp" alt='/' />
-            <img src="/images/bag-img.webp" alt='/' />
+            <img src="/images/bag-img.webp" alt='/' /> */}
             </div>
             <div className="item-info">
             <p className="item-brand">ESSENTIALS</p>
-            <p className="item-name">59Fifty F Mesh Hat</p>
-            <p className="item-price">₩107,100</p>
+            <p className="item-name">{product.title}</p>
+            <p className="item-price">${product.price}</p>
             <p className="item-shipping-info">₩470,200 이상에 해당하는 모든 주문은 KOREA (SOUTH)까지 무료 배송해 드립니다</p>
             <div className="item-size-contents">
                 <div className="item-color">
@@ -169,8 +180,6 @@ function Detail() {
             </div>
         </section>
     </div>
-    <Bottom />
-    <Bag value={display}/>
     </Fragment>
   )
 }

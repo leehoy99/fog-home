@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import '../css/shop.css'
-function ItemDemo(props) {
+function ItemDemo() {
   return (
     <Fragment>
       <div className="item">
@@ -11,7 +11,7 @@ function ItemDemo(props) {
       <div className="paragraph-box">
           <Link to="/shop/detail">
           <p className="brand">FEAR OF GOD</p>
-          <p className="cloth">{props.title}</p>
+          <p className="cloth">Demo</p>
           <p className="price">₩976,200</p>
           </Link>
       </div>

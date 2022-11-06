@@ -3,14 +3,13 @@ import '../css/menuExtend.css'
 
 const MenuExtendGnb1 = (props) => {
     const [changeClass, setChangeClass] = useState('');
-    console.log(props.class)
     useEffect(() => {
         if(props.class) {
             setChangeClass('on')
         }else {
             setChangeClass('')
         }
-    },[props])
+    },[props.class])
 
     return (
         <Fragment>

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import '../css/bag.css'
 import BagItem from './BagItem';
 
@@ -6,13 +6,11 @@ function Bag(props) {
     const [displayOn, setDisplayOn] = useState('');
 
     useEffect(() => {
-        const interValue = props.value;
-            if(interValue === 'on') {
-                setDisplayOn(`on`)
-            }
-    },[props.value]);
-
-    const items = <BagItem></BagItem>
+        if(props.display === 'on') {
+            setDisplayOn('on')
+        }
+    },[props.display])
+    const items = <BagItem />
   return (
     <Fragment>
 
