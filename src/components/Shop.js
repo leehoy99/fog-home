@@ -8,7 +8,7 @@ function Shop(props) {
     useEffect(() => {
         setBlur(props.blur)
     },[props.blur])
-
+    console.log(blur)
 
   return (
     <Fragment>

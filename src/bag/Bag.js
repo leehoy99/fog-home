@@ -4,13 +4,17 @@ import BagItem from './BagItem';
 
 function Bag(props) {
     const [displayOn, setDisplayOn] = useState('');
-
+    
     useEffect(() => {
         if(props.display === 'on') {
             setDisplayOn('on')
         }
     },[props.display])
-    const items = <BagItem />
+    console.log(props.product)
+    // const bagItem = () => {props.product.map((item) => (<BagItem key={item.length} id={item.id} title={item.title} image={item.image} price={item.price} brand={item.brand}/>))}
+    // useEffect(() => {
+    //     bagItem()
+    // })
   return (
     <Fragment>
 
@@ -20,7 +24,7 @@ function Bag(props) {
                 <p onClick={() => setDisplayOn('')}>BACK</p>
             </div>
             <div className="bag-box">
-                {items ? items : (<p style={{'textAlign': 'center','width':'100%'}}>There is no item</p>) }
+                {props.product.map((item) => (<BagItem id={item.id} title={item.title} image={item.image} price={item.price} brand={item.brand}/>))}
             </div>
             <div className="shipping">
                 <p className="shipping-info">₩470,200 이상에 해당하는 모든 주문은 KOREA (SOUTH)까지 무료 배송해 드립니다</p>

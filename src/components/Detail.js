@@ -1,11 +1,12 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import React, { Fragment, useCallback, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import '../css/detail.css'
+import RecomendItem from '../item/RecomendItem';
 
 function Detail(props) {
 
     const { id } = useParams();
-    const [product,setProduct] = useState('')
+    const [product,setProduct] = useState([])
     const [recomendProduct,setRecomendProduct] = useState('')
 
     useEffect(() => {
@@ -16,23 +17,28 @@ function Detail(props) {
         getProduct();
     }, [id]);
     const category = product.category
-    console.log(category)
     useEffect(() => {
         const getRecomendProduct = async () => {
-          const response = await fetch(`https://fakestoreapi.com/products/category/${category}`);
+          const response = await fetch(`https://fakestoreapi.com/products/category/${category}?limit=4`);
           setRecomendProduct(await response.json())
         };
         getRecomendProduct();
     }, [category]);
     
-    console.log(recomendProduct)
 
+
+    const addCart = useCallback(
+      () => {
+        props.getProd(product)
+      },
+      [props, product],
+    )
+    
 
     const [blur, setBlur] = useState('');
     useEffect(() => {
         setBlur(props.blur)
     },[props.blur])
-
     return (
     <Fragment>
     <div className={'detail-container ' + blur}>
@@ -77,7 +83,7 @@ function Detail(props) {
                 <p className="more-color-btn">MORE COLORS</p>
                 <p className="size-chart-btn">SIZE CHART</p>
             </div>
-            <div className="item-shipping">
+            <div className="item-shipping" onClick={addCart}>
                 <p>ADD TO CART</p>
             </div>
             <p className="item-paragraph">
@@ -129,7 +135,8 @@ function Detail(props) {
         <section className="section2">
             <p>YOU MAY ALSO LIKE</p>
             <div className="items">
-            <div className="item">
+                {recomendProduct ? recomendProduct.map((item) => (<RecomendItem key={item.id} id={item.id} title={item.title} image={item.image} price={item.price} brand={item.brand}/>)) : <></>} 
+            {/* <div className="item">
                 <div className="img-box">
                 <Link to='/shop/detail'><img src="/images/bag-img.webp" alt='/' /></Link>
                 </div>
@@ -176,7 +183,7 @@ function Detail(props) {
                     <p className="price">₩976,200</p>
                 </Link>
                 </div>
-            </div>
+            </div> */}
             </div>
         </section>
     </div>

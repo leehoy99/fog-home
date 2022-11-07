@@ -1,5 +1,5 @@
 import { Route, Routes, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import Main from './components/Main'
 import Shop from './components/Shop';
 import Account from './components/Account';
@@ -20,6 +20,7 @@ import Bag from './bag/Bag';
 function App() {
   const [item, setItem] = useState('')
   const [display, setDisplay] = useState('');
+  const [product, setProduct] = useState([]);
   const [blur, setBlur] = useState('');
   useEffect(() => {
     const fetchItemData = async () => {
@@ -41,15 +42,22 @@ function App() {
       useEffect(() => {
         getDis();
       },[display])
+      useEffect(() => {
+        getDis();
+      },[display])
     useParams();
+    const getProd = function (prod) {
+      setProduct([...product, prod])
+    }
+    console.log(product)
   return (
     <>
     <Nav getDis={getDis} classInfo={`main`} getBlur={getBlur}/>
     <Routes>
       <Route path='/' element={<Main  blur={blur}/>}></Route>
       <Route path='/main' element={<Main blur={blur}/>}></Route>
-      <Route path='/shop' element={<Shop itemData={item}/>}></Route>
-      <Route path='/shop/detail/:id' element={<Detail />}></Route>
+      <Route path='/shop' element={<Shop itemData={item} blur={blur}/>}></Route>
+      <Route path='/shop/detail/:id' element={<Detail blur={blur} getProd={getProd}/>}></Route>
       <Route path='/account' element={<Account blur={blur}/>}></Route>
       <Route path='/athletics' element={<Athletics blur={blur}/>}></Route>
       <Route path='/contact' element={<Contact blur={blur}/>}></Route>
@@ -61,7 +69,7 @@ function App() {
       <Route path='/privacy-policy' element={<PrivacyPolicy blur={blur}/>}></Route>
       <Route path='/extend-setting' element={<MenuExtendTest blur={blur}/>}></Route>
     </Routes>
-    <Bag display={display}/>
+    <Bag display={display} product={product}/>
     <Bottom />
     </>
   );
