@@ -1,5 +1,5 @@
 import { Route, Routes, useParams } from 'react-router-dom';
-import { useEffect, useState, memo } from 'react';
+import { useEffect, useState, } from 'react';
 import Main from './components/Main'
 import Shop from './components/Shop';
 import Account from './components/Account';
